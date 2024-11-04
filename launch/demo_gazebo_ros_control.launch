@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Gazebo options -->
+  <arg name="gazebo_gui" default="true" doc="Start Gazebo GUI"/>
+  <arg name="paused" default="false" doc="Start Gazebo paused"/>
+  <arg name="world_name" default="worlds/empty.world" doc="Gazebo world file"/>
+
+  <!-- Launch Gazebo and spawn the robot -->
+  <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
+
+  <!-- Human Model and Control Configuration -->
+
+  <!-- Load human model URDF -->
+  <group ns="human">
+    <arg name="human_description_file" default="$(dirname)/../urdf/human_model.urdf" />
+    <param name="robot_description" textfile="$(arg human_description_file)" />
+
+    <!-- Spawn human model in Gazebo -->
+    <node name="spawn_human" pkg="gazebo_ros" type="spawn_model" output="screen"
+      args="
+          -urdf 
+          -model human_model 
+          -param robot_description
+          -x 1.1 -y -0.7 -z 0.9 -R 0 -P 0 -Y 3.142"/>
+
+    <!-- State publishers for human model -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+    <!-- Controller spawner for human model -->
+    <arg name="controller_config_file" default="$(dirname)/../config/ros_controllers.yaml" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="true" output="screen" 
+          args="joint_state_controller 
+                human_x_position_controller
+                human_y_position_controller
+                human_z_rotation_controller
+                upper_torso_controller 
+                left_arm_controller 
+                right_arm_controller">
+      <rosparam command="load" file="$(arg controller_config_file)"/>
+    </node>
+  </group>
+
+</launch>

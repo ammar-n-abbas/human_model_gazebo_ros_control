@@ -1,0 +1,183 @@
+/human/:
+  # Publish joint_states
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  human_x_position_controller:
+    type: effort_controllers/JointEffortController
+    joint: world_to_pelvis_x
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  human_y_position_controller:
+      type: effort_controllers/JointEffortController
+      joint: pelvis_x_to_pelvis_y
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  human_z_rotation_controller:
+      type: effort_controllers/JointEffortController
+      joint: pelvis_z_rotation
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+      
+  upper_torso_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - jL5S1_rotx
+      - jL5S1_roty
+      - jL4L3_rotx
+      - jL4L3_roty
+      - jL1T12_rotx
+      - jL1T12_roty
+      - jT9T8_rotx
+      - jT9T8_roty
+      - jT9T8_rotz
+    gains:
+      jL5S1_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jL5S1_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jL4L3_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jL4L3_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jL1T12_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jL1T12_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jT9T8_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jT9T8_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jT9T8_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+  left_arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - jLeftC7Shoulder_rotx
+      - jLeftShoulder_rotx
+      - jLeftShoulder_roty
+      - jLeftShoulder_rotz
+      - jLeftElbow_roty
+      - jLeftElbow_rotz
+      - jLeftWrist_rotx
+      - jLeftWrist_rotz
+    gains:
+      jLeftC7Shoulder_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftShoulder_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftShoulder_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftShoulder_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftElbow_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftElbow_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftWrist_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jLeftWrist_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+  right_arm_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - jRightC7Shoulder_rotx
+      - jRightShoulder_rotx
+      - jRightShoulder_roty
+      - jRightShoulder_rotz
+      - jRightElbow_roty
+      - jRightElbow_rotz
+      - jRightWrist_rotx
+      - jRightWrist_rotz
+    gains:
+      jRightC7Shoulder_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightShoulder_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightShoulder_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightShoulder_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightElbow_roty:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightElbow_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightWrist_rotx:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
+      jRightWrist_rotz:
+        p: 100
+        d: 1
+        i: 1
+        i_clamp: 1
