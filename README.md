@@ -2,6 +2,9 @@
 
 This project simulates human model control using ROS and Gazebo. It includes a human model with configurable ROS controllers for movement and spawns various objects in a Gazebo world for collaborative and dynamic environment simulation.
 
+![human random control](https://github.com/user-attachments/assets/aa531964-0038-4228-a950-e03b27624a87)
+
+
 ## Features
 
 - **Human Model Simulation**: A detailed URDF-based human model with ROS controllers for position and movement.
