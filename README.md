@@ -35,7 +35,7 @@ Ensure you have the following installed:
 ### Directory Structure
 
 ```
-your-repo-name/
+human_model_gazebo_ros_control/
 ├── config/
 │   └── ros_controllers.yaml  # Configuration for ROS controllers
 ├── urdf/
@@ -45,7 +45,7 @@ your-repo-name/
 │   └── gazebo.launch  # Launch file for gazebo
 └── scripts/
     └── human_random_control.py  # Python file for human random control
-
+```
 
 ## Usage
 
