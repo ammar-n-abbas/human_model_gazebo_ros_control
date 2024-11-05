@@ -6,6 +6,8 @@ This project simulates human model control using ROS and Gazebo. It includes a h
   <img src="https://github.com/user-attachments/assets/aa531964-0038-4228-a950-e03b27624a87" alt="human random control">
 </p>
 
+The human model URDF is taken from this repository: https://github.com/robotology/human-gazebo.
+
 ## Features
 
 - **Human Model Simulation**: A detailed URDF-based human model with ROS controllers for position and movement.
